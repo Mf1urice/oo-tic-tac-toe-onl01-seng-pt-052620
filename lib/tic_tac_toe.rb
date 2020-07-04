@@ -86,5 +86,56 @@ class TicTacToe
     #     puts "whoops!"
     #   end
     # end
+    def play
+    until over?
+
+    end
+    if over?
+      if draw?
+        puts "Cat's Game!"
+      end
+      if won?
+        puts "Congratulations #{@winner}!"
+      end
+    end
   end
+
+  def over?
+    won? || draw?
+  end
+
+  def won?
+    WIN_COMBINATIONS.each do |combo|
+      windex0 = combo[0]
+      windex1 = combo[1]
+      windex2 = combo[2]
+
+      position_0 = @board[windex0]
+      position_1 = @board[windex1]
+      position_2 = @board[windex2]
+
+      if position_taken?(windex0) && position_0 == position_1 && position_1 == position_2
+        return combo
+      end
+    end
+    false
+  end
+
+  def full?
+    !(@board.include?(" ") || @board.include?(""))
+  end
+
+  def draw?
+    !won? && full?
+  end
+
+  def winner
+    if won?
+      @board[won?[0]]
+    end
+  end
+
 end
+end
+end 
+
