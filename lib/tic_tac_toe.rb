@@ -74,18 +74,18 @@ class TicTacToe
     else
       turn
     end
-    # index = -1
+    index = -1
     # until valid_move?(index)
     #   puts "Please make a move by entering a number between 1-9"
-    #   input = gets.strip 
-    #   index = input_to_index(input)
-    #   if valid_move?(index)
-    #     move(index, current_player)
-    #     display_board
-    #   else
-    #     puts "whoops!"
-    #   end
-    # end
+    input = gets.strip 
+     index = input_to_index(input)
+    if valid_move?(index)
+     move(index, current_player)
+    display_board
+    else
+     puts "whoops!"
+    end
+    end
     def play
     until over?
 
